@@ -1,12 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const cors = require("cors");
-const authRoutes = require("./routes/authRoutes");
-const authMiddleware = require("./middlewares/authMiddleware");
-
-
 dotenv.config();
+const cors = require("cors");
+
+const authRoutes = require("./routes/authRoutes");
+const monumentRoutes=require("./routes/monumentRoutes");
+const aiRoutes = require("./routes/aiRoutes");
+const authMiddleware= require("./middlewares/authMiddleware");
+
+
+
 
 const app = express();
 
@@ -17,6 +21,8 @@ app.get("/api/protected", authMiddleware, (req, res) => {
   res.json({ message: "You accessed protected route!", user: req.user });
 });
 app.use("/api/auth", authRoutes);
+app.use("/api/monuments", monumentRoutes);
+app.use("/api/ai", aiRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
