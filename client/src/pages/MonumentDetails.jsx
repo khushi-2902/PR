@@ -67,6 +67,32 @@ function MonumentDetails() {
           </button>
         </Link>
 
+        <h2>About</h2>
+<p>{monument.about}</p>
+
+<h2>History</h2>
+<p>{monument.history}</p>
+
+<h2>Architecture</h2>
+<p>{monument.architecture}</p>
+
+<h2>Cultural Significance</h2>
+<p>{monument.culturalSignificance}</p>
+
+<h2>Highlights</h2>
+<ul>
+  {monument.highlights?.map((h, i) => (
+    <li key={i}>{h}</li>
+  ))}
+</ul>
+
+<h2>Interesting Facts</h2>
+<ul>
+  {monument.facts?.map((f, i) => (
+    <li key={i}>{f}</li>
+  ))}
+</ul>
+
       </div>
 
     </div>

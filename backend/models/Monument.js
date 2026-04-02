@@ -27,7 +27,32 @@ const monumentSchema = new mongoose.Schema({
   },
   image: {
     type: String
-  }
+  },
+
+  //newFields are added for more data
+  about: {
+    type: String
+  },
+  history: {
+    type: String
+  },
+  architecture: {
+    type: String
+  },
+  culturalSignificance: {
+    type: String
+  },
+  highlights: [
+    {
+      type: String
+    }
+  ],
+  facts: [
+    {
+      type: String
+    }
+  ]
+
 }, { timestamps: true });
 
 module.exports = mongoose.model("Monument", monumentSchema);
